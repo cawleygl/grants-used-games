@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs') %>
+<main>
+	<div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+		<div class="container align-items-center justify-content-center">
+			<div class="row">
+				<h2>Offers Recieved for - <%= game.title + " (" + game.releaseYear + ")" %></h2>
+					<% if (offers.length) { %>
+					<table class="main-gamelist">
+						<thead>
+							<tr>
+								<th class="gamelist-item" scope="col">Bidder</th>
+								<th class="gamelist-item" scope="col">Amount</th>
+								<th class="gamelist-item" scope="col"><% if (game.active) { %>Action<% } else { %>Status<% } %></th>
+							</tr>
+						</thead>
+						<tbody>
+				<% offers.forEach((offer) => { %>
+					<tr>
+						<td class="gamelist-item"><%= offer.bidder.firstName + ' ' + offer.bidder.lastName %></td>
+						<td class="gamelist-item">$<%= offer.amount %></td>
+						<td class="gamelist-item">
+							<% if (game.active) { %>
+							<form>
+								<button class="btn btn-light text-cerulean" type="submit" formmethod="POST" formaction="/games/<%= game._id %>/offers/<%= offer._id %>/accept">Accept</button>
+							</form>
+							<% } else { %>
+								<%= offer.status %>
+							<% } %>
+						</td>
+					</tr>  
+					<% }) %> 
+				</tbody>
+			</table> 
+			<% } else { %>
+				<div class="main-gamelist gamelist-item">You have not recieved any offers yet! Please check back again soon.</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</main>
+<%- include('../partials/footer.ejs') %>

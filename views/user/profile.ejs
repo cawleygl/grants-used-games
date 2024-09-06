@@ -1,0 +1,81 @@
+<%- include('../partials/header.ejs') %>
+<main>
+	<div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="container align-items-center justify-content-center">
+					<h1> <%= user.firstName + ' ' + user.lastName %> </h1>
+					<h4>User Profile</h4>
+					<p>Check on your listings and edit any and all details here!</p>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-auto">
+						<h2>My Listings</h2>
+							<% if (games.length) { %>
+								<table class="main-gamelist">
+									<thead>
+										<tr>
+											<th class="gamelist-item" scope="col">Item</th>
+											<th class="gamelist-item" scope="col">Status</th>
+											<th class="gamelist-item" scope="col">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+								<% games.forEach((game) => { %>
+										<tr>
+										<td class="gamelist-item"><a class="gamelist-title" href="/games/<%= game.id %>"><%= game.title + " (" + game.releaseYear + ")" %></a></td>
+										<td class="gamelist-item"><%= game.active ? 'active' : 'inactive' %></td>
+										<td class="gamelist-item">									
+											<form>
+												<div class="btn-group">
+													<button class="btn btn-light btn-sm text-cerulean" type="submit" <%= game.totalOffers ? '' : 'disabled' %> formmethod="GET" formaction="/games/<%= game.id %>/offers">View Offers</button>
+													<button class="btn btn-success btn-sm" type="submit" formmethod="GET" formaction="/games/<%= game.id %>/edit"><i
+															class="bi-pencil-square"></i></button>
+													<button class="btn btn-danger btn-sm" type="submit" formmethod="POST" formaction="/games/<%= game.id %>?_method=DELETE"><i
+															class="bi-trash"></i></button>
+												</div>
+											</form>
+										</td>
+									</tr>  
+									<% }) %> 
+								</tbody>
+							</table> 
+							<% } else { %>
+								<div class="main-gamelist gamelist-item">You have not listed any games! Click "Sell" to create your first listing.</div>
+								<% } %>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-auto">
+						<h2>My Offers</h2>
+						<% if (offers.length) { %>
+							<table class="main-gamelist">
+								<thead>
+									<tr>
+										<th class="gamelist-item" scope="col">Item</th>
+										<th class="gamelist-item" scope="col">Status</th>
+										<th class="gamelist-item" scope="col">Amount</th>
+									</tr>
+								</thead>
+								<tbody>
+						<% offers.forEach((offer) => { %>
+							<tr>
+								<td class="gamelist-item"><a class="gamelist-title" href="/games/<%= offer.game.id %>"><%= offer.game.title + " (" + offer.game.releaseYear + ")"%></a></td>
+								<td class="gamelist-item"><%= offer.status %></td>
+								<td class="gamelist-item">$<%= offer.amount %></td>
+							</tr>  
+							<% }) %> 
+						</tbody>
+					</table> 
+					<% } else { %>
+						<div class="main-gamelist gamelist-item">You have not made any offers! View a listed game to make your first offer.</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<%- include('../partials/footer.ejs') %>

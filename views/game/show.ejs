@@ -1,0 +1,64 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <div
+        class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-sm"> <img
+                    src="../images/<%= game.image %>"
+                    alt=" Used <%= game.title %> (<%= game.releaseYear %>) Game"
+                    class="game-image"> </div>
+            <div class="col-sm">
+                <div class="container text-wrap game-details">
+                    <h1>
+                        <%= game.title %>
+                    </h1>
+                    <ul>
+                        <li><strong>Release Year: </strong>
+                            <%= game.releaseYear %>
+                        </li>
+                        <li><strong>Platform: </strong>
+                            <%= game.platform %>
+                        </li>
+                    </ul>
+                    <h3>Additional Details</h3>
+                    <ul>
+                        <li><strong>Seller: </strong>
+                            <%= game.seller.firstName + ' ' + game.seller.lastName %>
+                        </li>
+                        <li><strong>Condition: </strong>
+                            <%= game.condition %>
+                        </li>
+                        <li><strong>Price: </strong>$
+                            <%= game.price %>
+                        </li>
+												<li><strong>Offers: </strong>
+														<%= game.totalOffers %>
+												</li>
+                        <li><strong>Details: </strong>
+                            <%= game.details %>
+                        </li>
+                    </ul>
+										<% if (game.active) { %>
+										<h3>Make an Offer</h3>
+										<% if (game.totalOffers && game.highestOffer) { %>
+											<p class="text-alert">Current Highest Offer: $<%=game.highestOffer%></p>
+										<% } %>
+                    <form action="/games/<%= game.id %>/offers/"
+                        method="POST"> 
+                        <div class="input-group mb-3"> <span
+                                class="input-group-text">$</span> <input
+                                class="form-control" type="number" min=".01"
+                                step=".01" id="amount" name="amount" required>
+                        </div> 
+												<input id="submit" type="submit" value="Submit"
+                            class="btn btn-light text-cerulean">
+                    </form>
+										<% } else { %>
+											<p class="text-alert">Unfortunately, this game is no longer available.</p>
+										<% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

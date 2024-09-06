@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+        <div class="row">
+        	<div class="col-sm-4">
+						<div class="container align-items-center justify-content-center">
+              <h1>Register a New User</h1>
+              <p>Create an account to get started selling your old games or buying some new (used) ones!</p>
+							</div>
+        		</div>
+       		<div class="col-sm-8">
+            <form class="main-form" action="/users" method="POST">
+                <div class="mb-3"> 
+									<label for="firstName" class="form-label">First Name</label> 
+									<input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="mb-3"> 
+									<label for="lastName" class="form-label">Last Name</label> 
+									<input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="mb-3"> 
+									<label for="email" class="form-label">Email Address</label> 
+									<input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3"> 
+									<label for="password" class="form-label">Password</label> 
+									<input type="password" class="form-control" id="password" name="password" minlength="8" required>
+                </div>
+								<input id="submit" type="submit" value="Sign Up" class="btn btn-light btn-lg text-cerulean">
+            </form>
+        </div>
+    </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

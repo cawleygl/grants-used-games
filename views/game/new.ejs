@@ -1,0 +1,77 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+        <div class="row">
+        	<div class="col-sm-4">
+						<div class="container align-items-center justify-content-center">
+              <h1>Sell to Grant's</h1>
+              <p>Provide us some details about your used game, upload a
+                    picture, and get selling in seconds!</p>
+							</div>
+        		</div>
+       		<div class="col-sm-8">
+            <form class="main-form" action="/games" method="POST"
+                enctype="multipart/form-data">
+                <div class="mb-3"> <label for="title"
+                        class="form-label">Title</label> <input type="text"
+                        class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3"> 
+									<label for="platform" class="form-label">Platform</label> 
+										<select class="form-control" id="platform" name="platform" required>
+                        <option value="" selected disabled>Select Platform</option>
+                        <option value="NES">Nintendo Entertainment System - NES</option>
+                        <option value="SNES">Super Nintendo - SNES</option>
+                        <option value="PS1">Sony Playstation - PS1</option>
+                        <option value="N64">Nintendo 64 - N64</option>
+                        <option value="PS2">Sony Playstation 2 - PS2</option>
+                        <option value="XB">Microsoft Xbox - XB</option>
+                        <option value="NGC">Nintendo Gamecube - NGC</option>
+                        <option value="X360">Microsoft Xbox 360 - X360</option>
+                        <option value="PS3">Sony Playstation 3 - PS3</option>
+                        <option value="Wii">Nintendo Wii - Wii</option>
+                        <option value="WiiU">Nintendo Wii U - WiiU</option>
+                        <option value="PS4">Sony Playstation 4 - PS4</option>
+                        <option value="XB1">Microsoft Xbox One - XB1</option>
+                        <option value="NS">Nintendo Switch - NS</option>
+                        <option value="XSX">Microsoft Xbox Series X - XSX</option>
+                        <option value="PS5">Sony Playstation 5 - PS5</option>
+                        <option value="PC">Personal Computer - PC</option>
+                    </select> 
+									</div>
+                <div class="mb-3"> <label for="condition"
+                        class="form-label">Condition</label> <select
+                        class="form-control" id="condition" name="condition"
+                        required>
+                        <option value="" selected disabled>Select Condition</option>
+                        <option value="New In Wrapping">New In Wrapping</option>
+                        <option value="Like New">Like New</option>
+                        <option value="Cosmetically Flawed">Cosmetically Flawed</option>
+                        <option value="Used">Used</option>
+                        <option value="Poor">Poor</option>
+                    </select> </div>
+                <div class="mb-3"> <label for="year" class="form-label">Release
+                        Year</label> <input class="form-control" type="number"
+                        min="1900" step="1" id="releaseYear" name="releaseYear"
+                        required> </div> <label for="price"
+                    class="form-label">Price</label>
+                <div class="input-group mb-3"> <span
+                        class="input-group-text">$</span> <input
+                        class="form-control" type="number" min=".01" step=".01"
+                        id="price" name="price" required> </div>
+                <div class="mb-3"> <label for="details"
+                        class="form-label">Details</label> <textarea
+                        class="form-control" id="details" name="details"
+                        rows="3" required></textarea> </div>
+                <div class="mb-3"> <label for="image"
+                        class="form-label">Image</label> <input type="file"
+                        class="form-control" id="image" name="image"
+                        accept="image/png, image/jpeg, image/jpg, image/gif"
+                        required> </div> <input id="submit" type="submit"
+                    class="btn btn-light btn-lg text-cerulean">
+            </form>
+        </div>
+    </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

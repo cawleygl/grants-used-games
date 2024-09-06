@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-md-center">
+			<div class="container-fluid">
+        <div class="row mx-sm-5">
+            <% if (games.length) {games.forEach(game => { %>
+            <div class="col col-xxl-3 col-md-4 col-12 my-2"> 
+							<a href="/games/<%= game.id %>">
+                    <div class="card bg-cerulean text-bg-dark"> <img
+                            src="../images/<%= game.image %>"
+                            class="card-img-top"
+                            alt="Used <%= game.title %> (<%= game.releaseYear %>) Game">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <%= game.title %> (<%= game.releaseYear %>)
+                            </h4>
+                            <h5 class="card-subtitle bg-cerulean text-seagreen">
+                                <%= game.platform %> | <%= game.condition %>
+                            </h5>
+                        </div>
+                        <div class="card-footer bg-cerulean text-bg-dark">
+                            <h6>
+                                $<%= game.price %> <span class="float-right"><%= game.totalOffers %> Offer<% if (game.totalOffers !== 1) { %>s<% } %></span>
+                            </h6>
+                        </div>
+                    </div>
+                </a> </div>
+            <% });} else { %>
+						<div class="col-auto">
+            	<% if (searchTerm) { %>
+                <h1>There are no listed games that match your search criteria.</h1>
+                <% } else { %>
+                <h1>There are no games to display.</h1>
+            		<% }} %>
+        		</div>
+					</div>
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

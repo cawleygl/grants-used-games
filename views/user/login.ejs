@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+        <div class="row">
+        	<div class="col-sm-4">
+						<div class="container align-items-center justify-content-center">
+              <h1>Log In User</h1>
+              <p>Log in to your existing account to resume buying and selling!</p>
+							</div>
+        		</div>
+       		<div class="col-sm-8">
+            <form class="main-form" action="/users/login" method="POST">
+                <div class="mb-3"> 
+									<label for="email" class="form-label">Email Address</label> 
+									<input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3"> 
+									<label for="password" class="form-label">Password</label> 
+									<input type="password" class="form-control" id="password" name="password" required>
+                </div>
+								<input id="submit" type="submit" value="Log In" class="btn btn-light btn-lg text-cerulean">
+            </form>
+        </div>
+   	 	</div>
+    </div>
+</main>
+<%- include('../partials/footer.ejs') %>

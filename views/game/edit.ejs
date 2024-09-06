@@ -1,0 +1,76 @@
+<%- include('../partials/header.ejs')%>
+	<main>
+		<div
+			class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="container align-items-center justify-content-center">
+						<h1>Edit Game Listing</h1>
+						<p>Make changes to your listed game. Click submit to save your changes.</p>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<form class="main-form" method="POST" action="/games/<%= game.id %>/?_method=PUT" enctype="multipart/form-data">
+						<div class="mb-3">
+							<label for="title" class="form-label">Title</label>
+							<input type="text" class="form-control" id="title" name="title" value="<%= game.title %>" required>
+						</div>
+						<div class="mb-3">
+							<label for="platform" class="form-label">Platform</label>
+							<select class="form-control" id="platform" name="platform" value="<%= game.platform %>" required>
+								<option value="" disabled>Select Platform</option>
+								<option <%= game.platform === "NES" ? 'selected' : '' %> value="NES">Nintendo Entertainment System - NES</option>
+								<option <%= game.platform === "SNES" ? 'selected' : '' %> value="SNES">Super Nintendo - SNES</option>
+								<option <%= game.platform === "PS1" ? 'selected' : '' %> value="PS1">Sony Playstation - PS1</option>
+								<option <%= game.platform === "N64" ? 'selected' : '' %> value="N64">Nintendo 64 - N64</option>
+								<option <%= game.platform === "PS2" ? 'selected' : '' %> value="PS2">Sony Playstation 2 - PS2</option>
+								<option <%= game.platform === "XB" ? 'selected' : '' %> value="XB">Microsoft Xbox - XB</option>
+								<option <%= game.platform === "NGC" ? 'selected' : '' %> value="NGC">Nintendo Gamecube - NGC</option>
+								<option <%= game.platform === "X360" ? 'selected' : '' %> value="X360">Microsoft Xbox 360 - X360</option>
+								<option <%= game.platform === "PS3" ? 'selected' : '' %> value="PS3">Sony Playstation 3 - PS3</option>
+								<option <%= game.platform === "Wii" ? 'selected' : '' %> value="Wii">Nintendo Wii - Wii</option>
+								<option <%= game.platform === "WiiU" ? 'selected' : '' %> value="WiiU">Nintendo Wii U - WiiU</option>
+								<option <%= game.platform === "PS4" ? 'selected' : '' %> value="PS4">Sony Playstation 4 - PS4</option>
+								<option <%= game.platform === "XB1" ? 'selected' : '' %> value="XB1">Microsoft Xbox One - XB1</option>
+								<option <%= game.platform === "NS" ? 'selected' : '' %> value="NS">Nintendo Switch - NS</option>
+								<option <%= game.platform === "XSX" ? 'selected' : '' %> value="XSX">Microsoft Xbox Series X - XSX</option>
+								<option <%= game.platform === "PS5" ? 'selected' : '' %> value="PS5">Sony Playstation 5 - PS5</option>
+								<option <%= game.platform === "PC" ? 'selected' : '' %> value="PC">Personal Computer - PC</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="condition" class="form-label">Condition</label>
+							<select class="form-control" id="condition" name="condition" required>
+								<option value="" disabled>Select Condition</option>
+								<option <%= game.condition === "New In Wrapping" ? 'selected' : '' %> value="New In Wrapping">New In Wrapping</option>
+								<option <%= game.condition === "Like New" ? 'selected' : '' %> value="Like New">Like New</option>
+								<option <%= game.condition === "Cosmetically Flawed" ? 'selected' : '' %> value="Cosmetically Flawed">Cosmetically Flawed</option>
+								<option <%= game.condition === "Used" ? 'selected' : '' %> value="Used">Used</option>
+								<option <%= game.condition === "Poor" ? 'selected' : '' %> value="Poor">Poor</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="year" class="form-label">Release Year</label>
+							<input class="form-control" type="number" min="1900" step="1" id="releaseYear" name="releaseYear" value="<%= game.releaseYear %>" required>
+						</div>
+						<label for="price" class="form-label">Price</label>
+						<div class="input-group mb-3">
+							<span class="input-group-text">$</span>
+							<input class="form-control" type="number" min=".01" step=".01" id="price" name="price" value="<%= game.price %>" required>
+						</div>
+						<div class="mb-3">
+							<label for="details" class="form-label">Details</label>
+							<textarea class="form-control" rows="3" id="details" name="details" required><%= game.details %></textarea>
+						</div>
+						<div class="mb-3">
+							<label for="image" class="form-label">Image</label>
+							<input type="file" class="form-control" id="image" name="image" accept="image/png, image/jpeg, image/jpg, image/gif">
+						</div>
+						<input id="submit" type="submit" class="btn btn-light btn-lg text-cerulean">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</main>
+	<%- include('../partials/footer.ejs')%>

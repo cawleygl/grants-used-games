@@ -1,0 +1,13 @@
+<%- include('./partials/header.ejs')%>
+	<main>
+		<div class="container-fluid bg-seagreen border-seagreen vh-main d-inline-flex flex-row align-items-center justify-content-center text-wrap">
+			<div class="row">
+				<div class="col-auto">
+					<h1><%= error.status %> Error</h1>
+					<p><%= error.message %></p>
+				</div>
+			</div>
+		</div>
+
+	</main>
+	<%- include('./partials/footer.ejs')%>

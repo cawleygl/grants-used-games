@@ -1,0 +1,202 @@
+:root {
+  --cerulean: #004b7a;
+  --cerulean-shade: #003252;
+  --seagreen: #9ad6b9;
+  --seagreen-shade: #7DCAA4;
+	--alert-red: #960200;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--seagreen);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+button,
+blockquote,
+a.btn {
+  font-family: "Bebas Neue", sans-serif !important;
+  color: var(--cerulean);
+}
+
+h4,
+h5 {
+	margin-top: -10px;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: 1.25em;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.main-form {
+	background-color: #004b7a;
+	color: white;
+	border-radius: 0.375rem;
+	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 20px;
+}
+
+.main-gamelist {
+	background-color: #004b7a;
+	color: white;
+	border-radius: 0.375rem;
+	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.gamelist-item {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.gamelist-title {
+	color: white;
+	font-size: 1.4em;
+	font-family: "Bebas Neue", sans-serif !important;
+
+}
+
+.gamelist-title:hover {
+	color: var(--seagreen);
+	font-style: italic;
+}
+
+.vh-main {
+  min-height: calc(100vh - 96px);
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+
+.vh-half-main {
+  height: calc(50vh - 48px);
+}
+
+.card {
+  border: none;
+	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.3);
+	width: 100%;
+}
+
+.card:hover {
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.3);
+  transform: translate(2px, -2px);
+}
+
+.card-img-top {
+	height: 350px;
+  object-fit: cover;
+}
+
+.card-body {
+	height: 120px;
+}
+
+.card-title {
+	font-size: 1.2em;
+}
+
+.card-subtitle {
+	font-size: 1em;
+}
+
+.card-footer{
+	font-size: 1em;
+}
+
+.float-right {
+	float: right !important;
+}
+
+.copyright {
+  font-size: 0.85em;
+}
+
+.red {
+  background-size: auto;
+  background-color: var(--seagreen);
+}
+
+.bg-retro {
+  background-image: url("../images/retro-ron-lach.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-color: var(--seagreen);
+}
+
+.bg-modern {
+  background-image: url("../images/modern-jeshootscom.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-color: var(--seagreen);
+}
+
+.bg-seagreen {
+  background-color: var(--seagreen);
+}
+
+.bg-cerulean {
+  background-color: var(--cerulean) !important;
+}
+
+.text-seagreen {
+  color: var(--seagreen) !important;
+}
+
+.text-cerulean {
+  color: var(--cerulean) !important;
+}
+
+.text-alert {
+  color: var(--alert-red) !important;
+}
+
+.border-seagreen-btn {
+	border: 1px var(--seagreen-shade) solid;
+}
+
+.border-seagreen {
+	border: 8px var(--seagreen-shade) inset;
+}
+
+.border-cerulean {
+	border: 8px var(--cerulean-shade) outset;
+}
+
+.logo-type {
+  font-family: "Sixtyfour", sans-serif;
+}
+
+.game-image {
+	margin-bottom: 20px;
+	width: 100%;
+	border-radius: 0.375rem;
+	border: 4px var(--cerulean) outset;
+	box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.game-details {
+	margin: 0 auto;
+	/* width: 250px; */
+}
+
+.alert {
+	position: absolute;
+	z-index: 10;
+	left: 15px;
+	right: 15px;
+	margin-top: 15px;
+}
