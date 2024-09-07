@@ -10,8 +10,9 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
-// MongoDB URI in heroku
+// heroku config vars
 const uri = process.env.MONGODB_URI;
+const secret = process.env.secret;
 
 // create app
 const app = express();
@@ -39,7 +40,7 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 
 app.use(session({
-	secret: 'lksehfiuiw4efjewcriljnqewkrufw',
+	secret: secret,
 	resave: false,
 	saveUninitialized: false,
 	cookie: {maxAge: 60*60*1000}, //1 hour
