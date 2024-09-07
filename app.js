@@ -20,7 +20,7 @@ const app = express();
 
 // configuration
 let port = 3000;
-let host = 'localhost';
+let host = '0.0.0.0';
 app.set('view engine', 'ejs');
 
 // connect to Mongodb
