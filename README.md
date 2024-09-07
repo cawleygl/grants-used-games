@@ -5,3 +5,8 @@ An EJS application that operates as a storefront for a (fictional) used video ga
 
 ## Technologies Used
 EJS, Node.js, Express, MongoDB, HTML, CSS, Javascript
+
+## Link to Deployed Application
+[Grant's (Used) Games](https://grants-used-games.onrender.com/)
+
+## Screenshot
