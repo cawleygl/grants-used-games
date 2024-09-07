@@ -10,17 +10,19 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
+// MongoDB URI in heroku
+const uri = process.env.MONGODB_URI;
+
 // create app
 const app = express();
 
 // configuration
 let port = 3000;
 let host = 'localhost';
-let url = 'mongodb+srv://gcawley:ii5Mex0J2T9eIjy2@cluster0.sjdexg4.mongodb.net/project3?retryWrites=true&w=majority&appName=Cluster0';
 app.set('view engine', 'ejs');
 
 // connect to Mongodb
-mongoose.connect(url)
+mongoose.connect(uri)
 	.then(() => {
 		// start the server
 		app.listen(port, host, () => {
@@ -41,7 +43,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false,
 	cookie: {maxAge: 60*60*1000}, //1 hour
-	store: new MongoStore({mongoUrl: url})
+	store: new MongoStore({mongoUrl: uri})
 }));
 
 app.use(flash());
