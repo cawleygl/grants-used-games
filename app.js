@@ -1,4 +1,5 @@
 // modules
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const gameRoutes = require('./routes/gameRoutes');
@@ -12,7 +13,7 @@ const flash = require('connect-flash');
 
 // heroku config vars
 const uri = process.env.MONGODB_URI;
-const secret = process.env.secret;
+const secret = process.env.SECRET;
 
 // create app
 const app = express();
