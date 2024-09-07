@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 mongoose.connect(uri)
 	.then(() => {
 		// start the server
-		app.listen(port, host, () => {
+		app.listen(process.env.PORT || port, host, () => {
 			console.log("Server is running on port", port);
 		});
 	})
