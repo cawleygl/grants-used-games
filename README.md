@@ -10,3 +10,4 @@ EJS, Node.js, Express, MongoDB, HTML, CSS, Javascript
 [Grant's (Used) Games](https://grants-used-games.onrender.com/)
 
 ## Screenshot
+![Screenshot 2024-09-07 at 4 26 27 AM](https://github.com/user-attachments/assets/d087c340-fef3-4a7a-8cda-2cc9a9d71e95)
